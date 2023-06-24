@@ -47,7 +47,7 @@ if __name__ == "__main__":
     if len(args) == 0:
         show_help()
     # If the user provides the help flags
-    elif args[0] == "-h" or args[0] == "--help":
+    elif args[0].lower() == "-h" or args[0].lower() == "--help":
         show_help()
     # Assume a file was passed
     else:
