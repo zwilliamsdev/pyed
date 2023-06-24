@@ -28,15 +28,12 @@ def create_open_file(file) -> None:
     global file_handle
 
     # Check if the file exists
-    if not os.path.isfile(file_name):
+    if not os.path.isfile(os.getcwd() + "/" + file):
         # Ed will warn that the file does not exist
         # but will allow you to continue anyway
         print(f"{file} no such file or directory.")
-        # Create the file in read and write mode
-        file_handle = open(file, "w+")
-    else:
-        # Open file in read and append mode
-        file_handle = open(file, "a+")
+    # Open file in read and append mode
+    file_handle = open(file, "a+")
 
 
 def edit_file() -> None:
