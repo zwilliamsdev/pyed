@@ -17,10 +17,13 @@ def edit_file(file) -> None:
 
     # Check if the file exists
     if not os.path.isfile(file):
+        # Ed will warn that the file does not exist
+        # but will allow you to continue anyway
         print(f"{file} no such file or directory.")
-        file = open(file, "w+")  # Create the file
+        # Create the file in read and write mode
+        file = open(file, "w+")
     else:
-        # Open file
+        # Open file in read and append mode
         file = open(file, "a+")
 
     # Open the file in the editor
@@ -29,14 +32,12 @@ def edit_file(file) -> None:
     while editing:
         command = input("")
         if command == ".":
-            print("Done editing")
             for line in lines:
                 file.write(line + "\n")
             file.close()
             editing = False
         else:
             lines.append(command)
-    print("done")
 
 
 if __name__ == "__main__":
